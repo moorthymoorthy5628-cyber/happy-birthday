@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Experience</title>
+    <!-- CSS File Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Flying Butterflies Background Animation -->
+    <div class="butterfly-container">
+        <div class="butterfly">🦋</div>
+        <div class="butterfly">🦋</div>
+        <div class="butterfly">🦋</div>
+        <div class="butterfly">🦋</div>
+        <div class="butterfly">🦋</div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">🎉 B-Day</div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-btn active" data-target="page-home">Home</a></li>
+            <li><a href="#" class="nav-btn" data-target="page-memories">Memories</a></li>
+            <li><a href="#" class="nav-btn" data-target="page-wishes">Wishes</a></li>
+            <li><a href="#" class="nav-btn" data-target="page-gallery">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container with Multiple Pages -->
+    <main class="main-container">
+        
+        <!-- Page 1: Home -->
+        <section id="page-home" class="page active">
+            <h1>Happy Birthday!</h1>
+            <p>Wishing you a wonderful day filled with joy, love, and success.</p>
+            <button class="explore-btn" onclick="switchPage('page-memories')">Explore Memories ➔</button>
+        </section>
+
+        <!-- Page 2: Memories -->
+        <section id="page-memories" class="page">
+            <h2>Sweet Memories</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>First Meet</h3>
+                    <p>That unforgettable day when everything changed for the better.</p>
+                </div>
+                <div class="card">
+                    <h3>Crazy Trips</h3>
+                    <p>All the late-night drives, laughter, and endless fun we had.</p>
+                </div>
+                <div class="card">
+                    <h3>Best Moments</h3>
+                    <p>Celebrating small wins and creating lifelong bonds together.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 3: Wishes -->
+        <section id="page-wishes" class="page">
+            <h2>Special Wishes</h2>
+            <div class="wish-box">
+                <p>"May this year bring you closer to all your big dreams. Keep shining bright and inspiring everyone around you with your amazing energy!"</p>
+                <span class="wish-author">- With lots of love</span>
+            </div>
+        </section>
+
+        <!-- Page 4: Gallery / Fun -->
+        <section id="page-gallery" class="page">
+            <h2>Celebration Moments</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">🎂 Cake Cutting</div>
+                <div class="gallery-item">🎁 Surprise Gifts</div>
+                <div class="gallery-item">🎈 Party Vibes</div>
+                <div class="gallery-item">✨ Good Times</div>
+            </div>
+        </section>
+
+    </main>
+</body>
+    <!-- JavaScript code for Page Switching -->
+    <script>
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const pages = document.querySelectorAll('.page');
+
+        function switchPage(targetId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+                if (page.id === targetId) {
+                    page.classList.add('active');
+                }
+            });
+
+            navButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-target') === targetId) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = button.getAttribute('data-target');
+                switchPage(target);
+            });
+        });
+    </script>
+
+</html>
